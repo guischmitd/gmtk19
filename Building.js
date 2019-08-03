@@ -20,7 +20,7 @@ class Building {
     } else if (this.type === 'mall') {
       this.w = 3;
       this.h = 3;
-      this.color = color(151, 185, 240);
+      this.color = color(185, 220, 255);
     } else if (this.type === 'park') {
       this.w = 3;
       this.h = 3;
