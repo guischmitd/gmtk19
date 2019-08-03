@@ -8,7 +8,6 @@ class City {
     this.cellSize = (canvas.width / this.cols)
     this.roadSize = (this.cellSize / 4)
     this.cellSize -= this.roadSize * 2
-
   }
 
   draw() {
