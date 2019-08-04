@@ -1,5 +1,5 @@
 class Agent {
-  constructor() {
+  constructor(route) {
     this.x = random(0, 800);
     this.y = random(0, 600);
     // console.log(this.x, this.y)
@@ -7,6 +7,7 @@ class Agent {
     this.h = 5;
     this.stroke = color(0, 0, 0, 0)
     this.color = color(10, 128, 10)
+    this.route = route  
   }
 
   draw() {

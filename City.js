@@ -5,9 +5,8 @@ class City {
     this.rows = rows
     this.cols = cols
 
-    this.cellSize = min((width / this.cols), (height / this.rows))
+    this.cellSize = min((width / (this.cols + (this.cols + 1) / 4)), (height / (this.rows + (this.rows + 1) / 4)))
     this.roadSize = (this.cellSize / 4)
-    this.cellSize -= this.roadSize
   }
 
   draw() {

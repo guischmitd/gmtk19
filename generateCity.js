@@ -46,8 +46,9 @@ function generateCity(citySpec){
     if (structureCoordinatesUnique.length == structureCoordinates.length) {
       duplicateEntries = false;
     }
-    console.log(count++);
+    count++
   }
+  console.log(count);
 
   // Assign entrances and tags
 let buildings = [];

@@ -1,5 +1,6 @@
 class Building {
   constructor(tag, position, size, entrance) {
+    this.tag = tag
     this.type = tag.split('_')[0];
     this.i = position[0]
     this.j = position[1]
@@ -39,8 +40,10 @@ class Building {
 
     rectMode(CORNER)
     fill(this.color)
+
     stroke(this.strokeColor)
-    strokeWeight(roadSize / 8)
+    strokeWeight(roadSize / 6)
+    strokeJoin(ROUND)
 
     rect(x, y, w, h)
   }

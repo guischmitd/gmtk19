@@ -1,5 +1,5 @@
 class AgentSpec {
   constructor() {
-    this.nAgents = 50;
+    this.nAgents = 1;
   }
 }
