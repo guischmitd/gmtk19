@@ -6,21 +6,21 @@ function generateCity(citySpec){
   let tags = [];
   for (let i = 0; i <= w; i++) {
     for (let j = 0; j <= h; j++) {
-      nodesList.push = [i,j];
+      nodesList.push( [i,j] );
 
       nodeIndex = i + j*(w+1);
       if ((i < w) &&   (j < h)) {
-        edgeList.push = [ nodeIndex, (nodeIndex+1)];
-        edgeList.push = [ nodeIndex, (nodeIndex+w+1)];
+        edgeList.push( [ nodeIndex, (nodeIndex+1)] );
+        edgeList.push( [ nodeIndex, (nodeIndex+w+1)] );
       }
       if ((i = w) && (j < h)) {
-        edgeList.push = [ nodeIndex, (nodeIndex+w+1)];
+        edgeList.push( [ nodeIndex, (nodeIndex+w+1)] );
       }
       if ((i < w) && (j = h)) {
-        edgeList.push = [ nodeIndex, (nodeIndex+1)];
+        edgeList.push( [ nodeIndex, (nodeIndex+1)] );
       }
 
-      tags.push = 'intersection' + nodeIndex.toString()
+      tags.push( 'intersection' + nodeIndex.toString() )
     }
   }
 
@@ -34,7 +34,7 @@ function generateCity(citySpec){
     structureCoordinates = [];
     // distribute structures randomly
     for (let i=0; i < totalStructures; i++) {
-      structureCoordinates.push = [getRandomInt(0,w/3),getRandomInt(0,h/3)].map( function(x) {return x*3} )
+      structureCoordinates.push( [getRandomInt(0,w/3),getRandomInt(0,h/3)].map( function(x) {return x*3} ) );
     }
     // check for duplicates
     let structureCoordinatesUnique = structureCoordinates.filter(function(item, index) {return structureCoordinates.indexOf(item) >= index;});
@@ -65,9 +65,9 @@ function generateCity(citySpec){
 
     let nodeN = nodesList.indexOf(entranceCoord)
 
-    nodesList.push = mapCoord;
-    edgeList.push = [(nodesList.length - 1) ,node N];
-    tags.push = 'hospital' + i.toString();
+    nodesList.push(mapCoord);
+    edgeList.push( [(nodesList.length - 1) ,nodeN] );
+    tags.push( 'hospital' + i.toString() );
   }
 
   for (let i=0; i < schools; i++) {
@@ -90,9 +90,9 @@ function generateCity(citySpec){
 
     let nodeN = nodesList.indexOf(entranceCoord)
 
-    nodesList.push = mapCoord;
-    edgeList.push = [(nodesList.length - 1) , nodeN];
-    tags.push = 'school' + i.toString();
+    nodesList.push( mapCoord );
+    edgeList.push( [(nodesList.length - 1) , nodeN] );
+    tags.push( 'school' + i.toString() );
   }
 
   for (let i=0; i < malls; i++) {
@@ -115,12 +115,13 @@ function generateCity(citySpec){
 
     let nodeN = nodesList.indexOf(entranceCoord)
 
-    nodesList.push = mapCoord;
-    edgeList.push = [(nodesList.length - 1) , nodeN];
-    tags.push = 'mall' + i.toString();
+    nodesList.push( mapCoord );
+    edgeList.push( [(nodesList.length - 1) , nodeN] );
+    tags.push( 'mall' + i.toString() );
   }
 
   // Clear edges overlapping with buildings
+
 
 
 
