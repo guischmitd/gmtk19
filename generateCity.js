@@ -44,6 +44,8 @@ function generateCity(citySpec){
   }
 
   // Assign entrances and tags
+let buildings = [];
+let gameConfig = new GameConfig();
 
   for (let i=0; i < hospitals; i++) {
     let coord = structureCoordinates.splice(0,1);
@@ -53,21 +55,25 @@ function generateCity(citySpec){
     let randAux = getRandomInt(0,3);
     switch (randAux) {
       case 1:
-        entranceCoord[0] = entranceCoord[0] + 2;
+        entranceCoord[0] = entranceCoord[0] + gameConfig.hospitalSize[0];
         break;
       case 2:
-        entranceCoord[1] = entranceCoord[1] + 3;
+        entranceCoord[1] = entranceCoord[1] + gameConfig.hospitalSize[1];
         break;
       case 3:
-        entranceCoord[0] = entranceCoord[0] + 2;
-        entranceCoord[1] = entranceCoord[1] + 3;
+        entranceCoord[0] = entranceCoord[0] + gameConfig.hospitalSize[0];
+        entranceCoord[1] = entranceCoord[1] + gameConfig.hospitalSize[1];
     }
 
     let nodeN = nodesList.indexOf(entranceCoord)
 
     nodesList.push(mapCoord);
     edgeList.push( [(nodesList.length - 1) ,nodeN] );
-    tags.push( 'hospital' + i.toString() );
+    let tag = 'hospital_' + i.toString();
+    tags.push( tag );
+
+    // Buildings array
+    buildings.push( new Building( tag, mapCoord, gameConfig.hospitalSize, entranceCoord) )
   }
 
   for (let i=0; i < schools; i++) {
@@ -78,21 +84,25 @@ function generateCity(citySpec){
     let randAux = getRandomInt(0,3);
     switch (randAux) {
       case 1:
-        entranceCoord[0] = entranceCoord[0] + 2;
+        entranceCoord[0] = entranceCoord[0] + gameConfig.schoolSize[0];
         break;
       case 2:
-        entranceCoord[1] = entranceCoord[1] + 2;
+        entranceCoord[1] = entranceCoord[1] + gameConfig.schoolSize[1];
         break;
       case 3:
-        entranceCoord[0] = entranceCoord[0] + 2;
-        entranceCoord[1] = entranceCoord[1] + 2;
+        entranceCoord[0] = entranceCoord[0] + gameConfig.schoolSize[0];
+        entranceCoord[1] = entranceCoord[1] + gameConfig.schoolSize[1];
     }
 
     let nodeN = nodesList.indexOf(entranceCoord)
 
     nodesList.push( mapCoord );
     edgeList.push( [(nodesList.length - 1) , nodeN] );
-    tags.push( 'school' + i.toString() );
+    tag = 'school_' + i.toString();
+    tags.push( tag );
+
+    // Buildings array
+    buildings.push( new Building( tag, mapCoord, gameConfig.hospitalSize, entranceCoord) )
   }
 
   for (let i=0; i < malls; i++) {
@@ -103,22 +113,28 @@ function generateCity(citySpec){
     let randAux = getRandomInt(0,3);
     switch (randAux) {
       case 1:
-        entranceCoord[0] = entranceCoord[0] + 3;
+        entranceCoord[0] = entranceCoord[0] + gameConfig.mallSize[0];
         break;
       case 2:
-        entranceCoord[1] = entranceCoord[1] + 3;
+        entranceCoord[1] = entranceCoord[1] + gameConfig.mallSize[1];
         break;
       case 3:
-        entranceCoord[0] = entranceCoord[0] + 3;
-        entranceCoord[1] = entranceCoord[1] + 3;
+        entranceCoord[0] = entranceCoord[0] + gameConfig.mallSize[0];
+        entranceCoord[1] = entranceCoord[1] + gameConfig.mallSize[1];
     }
 
     let nodeN = nodesList.indexOf(entranceCoord)
 
     nodesList.push( mapCoord );
     edgeList.push( [(nodesList.length - 1) , nodeN] );
-    tags.push( 'mall' + i.toString() );
+    tag = 'mall_' + i.toString();
+    tags.push( tag );
+
+
+    // Buildings array
+    buildings.push( new Building( tag, mapCoord, gameConfig.hospitalSize, entranceCoord) )
   }
+
 
   // Clear edges overlapping with buildings
 
@@ -126,6 +142,13 @@ function generateCity(citySpec){
 
 
   // Assign houses and parks
+
+  let city = new City(w,h)
+  city.edgeList = edgeList;
+  city.nodeList = nodesList;
+  city.graphTags = tags;
+
+  city.buildings = buildings;
 
 }
 
