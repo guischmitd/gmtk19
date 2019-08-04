@@ -102,7 +102,7 @@ let gameConfig = new GameConfig();
     tags.push( tag );
 
     // Buildings array
-    buildings.push( new Building( tag, mapCoord, gameConfig.hospitalSize, entranceCoord) )
+    buildings.push( new Building( tag, mapCoord, gameConfig.schoolSize, entranceCoord) )
   }
 
   for (let i=0; i < malls; i++) {
@@ -132,7 +132,7 @@ let gameConfig = new GameConfig();
 
 
     // Buildings array
-    buildings.push( new Building( tag, mapCoord, gameConfig.hospitalSize, entranceCoord) )
+    buildings.push( new Building( tag, mapCoord, gameConfig.mallSize, entranceCoord) )
   }
 
 
@@ -149,7 +149,7 @@ let gameConfig = new GameConfig();
   city.graphTags = tags;
 
   city.buildings = buildings;
-
+  return city;
 }
 
 
