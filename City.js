@@ -11,8 +11,22 @@ class City {
 
   draw() {
     background(211)
+
+    // Draw corners (Debugging)
+    for (var i = 0; i < this.rows + 1; i++) {
+      for (var j = 0; j < this.cols + 1; j++) {
+          fill(91)
+          noStroke()
+
+          let x = i * (this.cellSize + this.roadSize) + this.roadSize / 2;
+          let y = j * (this.cellSize + this.roadSize) + this.roadSize / 2;
+
+          ellipse(x, y, this.roadSize / 2);
+
     for (let building of this.buildings) {
       building.draw(this.cellSize, this.roadSize)
+    }
+      }
     }
   }
 }

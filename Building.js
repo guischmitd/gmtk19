@@ -42,7 +42,7 @@ class Building {
     fill(this.color)
 
     stroke(this.strokeColor)
-    strokeWeight(roadSize / 6)
+    strokeWeight(roadSize / 10)
     strokeJoin(ROUND)
 
     rect(x, y, w, h)
