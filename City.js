@@ -1,11 +1,11 @@
 class City {
   constructor(rows, cols) {
-    createCanvas(800, 600)
+    createCanvas(800, 800)
     this.buildings = []
     this.rows = rows
     this.cols = cols
 
-    this.cellSize = (canvas.width / this.cols)
+    this.cellSize = min((width / this.cols), (height / this.rows))
     this.roadSize = (this.cellSize / 4)
     this.cellSize -= this.roadSize
   }

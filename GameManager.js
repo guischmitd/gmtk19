@@ -2,19 +2,14 @@ class GameManager {
   constructor() {
     this.level = 0
     this.agents = []
-    this.city = new City()
+    this.city = new City(10, 10)
   }
 
-  show() {
-    for (let agent of this.agents) {
-      agent.draw()
-    }
-  }
-
-  nextLevel() {
+  nextLevel(citySpec, agentSpec) {
     this.level++
-    this.city = this.generateCity(citySpec)
-    this.agents = generateAgents(agentSpec)
+    this.city = generateCity(citySpec)
+    console.log(this.city)
+    this.generateAgents(agentSpec)
 
     console.log('Welcome to level ' + this.level + '!')
   }
@@ -23,6 +18,13 @@ class GameManager {
     for (let i=0; i < agentSpecs.nAgents; i++) {
       this.agents.push(new Agent())
     }
+  }
+
+  show() {
+    for (let agent of this.agents) {
+      agent.draw()
+    }
+    this.city.draw()
   }
 
   clicked() {

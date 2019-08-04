@@ -2,7 +2,7 @@ class Agent {
   constructor() {
     this.x = random(0, 800);
     this.y = random(0, 600);
-    console.log(this.x, this.y)
+    // console.log(this.x, this.y)
     this.w = 5;
     this.h = 5;
     this.stroke = color(0, 0, 0, 0)
