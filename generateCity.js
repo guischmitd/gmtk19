@@ -1,6 +1,6 @@
 const uniquePairs = pairs => [...new Set(pairs.map(pair => JSON.stringify(pair)))].map(pair => JSON.parse(pair))
 
-function generateCity(citySpec){  
+function generateCity(citySpec){
   let h = citySpec.h;
   let w = citySpec.w;
   let nodesList = [];
@@ -32,6 +32,9 @@ function generateCity(citySpec){
   let totalStructures = hospitals + schools + malls;
 
   let duplicateEntries = true;
+  let structureCoordinates = [];
+  let structureCoordinatesUnique = [];
+  let count = 0;
   while(duplicateEntries) {
     structureCoordinates = [];
     // distribute structures randomly
@@ -39,12 +42,11 @@ function generateCity(citySpec){
       structureCoordinates.push( [getRandomInt(0,w/3-1),getRandomInt(0,h/3-1)].map( function(x) {return x*3} ) );
     }
     // check for duplicates
-    let structureCoordinatesUnique = structureCoordinates.filter(function(item, index) {return structureCoordinates.indexOf(item) <= index;});
+    structureCoordinatesUnique = uniquePairs(structureCoordinates)
     if (structureCoordinatesUnique.length == structureCoordinates.length) {
       duplicateEntries = false;
     }
-    console.log(structureCoordinates)
-
+    console.log(count++);
   }
 
   // Assign entrances and tags

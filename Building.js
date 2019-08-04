@@ -1,6 +1,5 @@
 class Building {
   constructor(tag, position, size, entrance) {
-    console.log(tag, position, size)
     this.type = tag.split('_')[0];
     this.i = position[0]
     this.j = position[1]
