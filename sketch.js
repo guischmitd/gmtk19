@@ -9,6 +9,10 @@ function setup() {
   city.buildings.push(new Building('hospital', 0, 3))
   city.buildings.push(new Building('house', 0, 5))
   city.buildings.push(new Building('mall', 3, 3))
+  city.buildings.push(new Building('park', 1, 5))
+  city.buildings.push(new Building('park', 2, 5))
+  city.buildings.push(new Building('park', 3, 2))
+  city.buildings.push(new Building('park', 4, 2))
 }
 
 function draw() {

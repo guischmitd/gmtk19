@@ -1,5 +1,5 @@
 class Building {
-  constructor(type, i, j, entrance) {
+  constructor(type, i, j, w, h, entrance) {
     this.type = type;
     this.i = i
     this.j = j
@@ -27,8 +27,8 @@ class Building {
       this.color = color(185, 220, 255);
 
     } else if (this.type === 'park') {
-      this.w = 3;
-      this.h = 3;
+      this.w = 1;
+      this.h = 1;
       this.color = color(142, 207, 124);
       this.strokeColor = color(86, 138, 72);
 
