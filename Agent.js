@@ -1,16 +1,21 @@
 class Agent {
-  constructor(x, y, infected) {
-    this.infected = boolean(infected);
-    this.x = Math.random(0, 800);
-    this.y = Math.random(0, 600);
+  constructor() {
+    this.x = random(0, 800);
+    this.y = random(0, 600);
+    console.log(this.x, this.y)
     this.w = 5;
     this.h = 5;
-    agent.stroke = false;
-    agent.color = color(10, 128, 10)
+    this.stroke = color(0, 0, 0, 0)
+    this.color = color(10, 128, 10)
   }
 
   draw() {
+    fill(this.color)
+    stroke(this.stroke)
+    strokeWeight(5)
     rectMode(RADIUS)
+
+    rect(this.x, this.y, this.w, this.h)
   }
 
   mouseOver() {

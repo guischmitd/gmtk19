@@ -2,6 +2,7 @@ let level = 0
 
 function setup() {
   gameManager = new GameManager()
+  agentSpec = new AgentSpec()
 
   city = new City(10, 10)
   city.buildings.push(new Building('mall', 0, 0))
@@ -13,10 +14,13 @@ function setup() {
   city.buildings.push(new Building('park', 2, 5))
   city.buildings.push(new Building('park', 3, 2))
   city.buildings.push(new Building('park', 4, 2))
+
+  gameManager.generateAgents(agentSpec)
 }
 
 function draw() {
   city.draw()
+  gameManager.show()
 }
 
 function mouseClicked() {
