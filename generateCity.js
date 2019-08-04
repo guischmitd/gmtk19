@@ -24,9 +24,9 @@ function generateCity(citySpec){
     }
   }
 
-  let hospitals = citySpec.hospitals; // 2x3
-  let schools = citySpec.schools; // 2x2
-  let malls = citySpec.malls; // 3x3
+  let hospitals = citySpec.hospitals;
+  let schools = citySpec.schools;
+  let malls = citySpec.malls;
   let totalStructures = hospitals + schools + malls;
 
   let duplicateEntries = true;
@@ -44,6 +44,7 @@ function generateCity(citySpec){
   }
 
   // Assign entrances and tags
+
   for (let i=0; i < hospitals; i++) {
     let coord = structureCoordinates.splice(0,1);
     let mapCoord = coord[0];
@@ -121,7 +122,9 @@ function generateCity(citySpec){
 
   // Clear edges overlapping with buildings
 
-  
+
+
+  // Assign houses and parks
 
 }
 
