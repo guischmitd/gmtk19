@@ -1,4 +1,6 @@
-function generateCity(citySpec){
+const uniquePairs = pairs => [...new Set(pairs.map(pair => JSON.stringify(pair)))].map(pair => JSON.parse(pair))
+
+function generateCity(citySpec){  
   let h = citySpec.h;
   let w = citySpec.w;
   let nodesList = [];
