@@ -36,13 +36,15 @@ function generateCity(citySpec){
     structureCoordinates = [];
     // distribute structures randomly
     for (let i=0; i < totalStructures; i++) {
-      structureCoordinates.push( [getRandomInt(0,w/3),getRandomInt(0,h/3)].map( function(x) {return x*3} ) );
+      structureCoordinates.push( [getRandomInt(0,w/3-1),getRandomInt(0,h/3-1)].map( function(x) {return x*3} ) );
     }
     // check for duplicates
-    let structureCoordinatesUnique = structureCoordinates.filter(function(item, index) {return structureCoordinates.indexOf(item) >= index;});
+    let structureCoordinatesUnique = structureCoordinates.filter(function(item, index) {return structureCoordinates.indexOf(item) <= index;});
     if (structureCoordinatesUnique.length == structureCoordinates.length) {
       duplicateEntries = false;
     }
+    console.log(structureCoordinates)
+
   }
 
   // Assign entrances and tags
@@ -52,7 +54,9 @@ let gameConfig = new GameConfig();
   for (let i=0; i < hospitals; i++) {
     let coord = structureCoordinates.splice(0,1);
     let mapCoord = coord[0];
-    let entranceCoord = mapCoord;
+    let entranceCoord = [];
+    entranceCoord.push(mapCoord[0]);
+    entranceCoord.push(mapCoord[1]);
 
     let randAux = getRandomInt(0,3);
     switch (randAux) {
@@ -75,13 +79,15 @@ let gameConfig = new GameConfig();
     tags.push( tag );
 
     // Buildings array
-    buildings.push( new Building( tag, mapCoord, gameConfig.hospitalSize, entranceCoord) )
+    buildings.push( new Building( tag, mapCoord, gameConfig.hospitalSize, entranceCoord) );
   }
 
   for (let i=0; i < schools; i++) {
     let coord = structureCoordinates.splice(0,1);
     let mapCoord = coord[0];
-    let entranceCoord = mapCoord;
+    let entranceCoord = [];
+    entranceCoord.push(mapCoord[0]);
+    entranceCoord.push(mapCoord[1]);
 
     let randAux = getRandomInt(0,3);
     switch (randAux) {
@@ -110,7 +116,9 @@ let gameConfig = new GameConfig();
   for (let i=0; i < malls; i++) {
     let coord = structureCoordinates.splice(0,1);
     let mapCoord = coord[0];
-    let entranceCoord = mapCoord;
+    let entranceCoord = [];
+    entranceCoord.push(mapCoord[0]);
+    entranceCoord.push(mapCoord[1]);
 
     let randAux = getRandomInt(0,3);
     switch (randAux) {
